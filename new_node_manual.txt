@@ -1,0 +1,25 @@
+for a new sensor connection, go to the company's website and follow their manual
+
+for example:
+
+ouster - https://github.com/ouster-lidar/ouster-sdk
+ZED2i - https://github.com/stereolabs/zed-sdk
+
+for a new node to do everything you want do the following (based on the udemy course ROS2 for begginers - https://www.udemy.com/course/ros2-for-beginners/learn/lecture/21805806?start=45:
+
+
+add a new package (each package can have many nodes but most of the time just one):
+1. cd ros2_ws/src
+2. write: ros2 pkg create name_of_pkg --build-type ament_python --dependencies rclpy
+3. cd ros2_ws
+4. write colcon build
+
+add the node:
+1. cd ros2_ws/src/name_of_pkg/name_of_pkg
+2. create the node - a python file - write: touch node_name.py
+3. write the node as you wish - you should follow the guidelines in the udemy course - https://www.udemy.com/course/ros2-for-beginners/learn/lecture/21305288#overview
+4. install the node to ros2 - in the name_of_pkg/name_of_pkg dir enter file called setup.py
+5. under entry_points insert under console_scripts the name of the desired node like that: "node_name = name_of_pkg.node_name.py:main"
+6. cd ros2_ws
+7. write: colcon_build
+
